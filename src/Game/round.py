@@ -1,4 +1,4 @@
-from kao_deck import Deck
+from Game.game_deck import GameDeck
 
 class Round:
     """ Represents a round of the game Phase Ten """
@@ -6,3 +6,4 @@ class Round:
     def __init__(self, players):
         """ Initialize the Round with the players who are playing """
         self.players = players
+        self.gameDeck = GameDeck()
