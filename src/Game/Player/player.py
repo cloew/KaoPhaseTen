@@ -6,5 +6,5 @@ class Player:
         """ Initialize the Player """
         self.hand = []
         self.phaseList = phaseList
-        self.phase = phaseList.getStartPhase()
+        self.phase = phaseList.startPhase
     
