@@ -8,3 +8,6 @@ class Player:
         self.phaseList = phaseList
         self.phase = phaseList.startPhase
     
+    def addToHand(self, cards):
+        """ Adds the given cards to the player's hand """
+        self.hand += cards
