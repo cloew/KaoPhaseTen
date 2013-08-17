@@ -11,6 +11,7 @@ class GameDeck(Deck):
         """ Initialize the Game Deck """
         deckInitializer = self.buildDeckInitializer()
         Deck.__init__(deck_initializer=deckInitializer)
+        self.shuffle()
         
     def buildDeckInitializer(self):
         """ Build the Deck Initializer """
