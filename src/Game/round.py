@@ -10,3 +10,12 @@ class Round:
         
         for player in self.players:
             player.addToHand(self.gameDeck.draw(10))
+            
+    @property
+    def over(self):
+        """ Returns if the Round is over """
+        for player in self.players:
+            if len(player.hand) == 0:
+                return True
+        else:
+            return False 
