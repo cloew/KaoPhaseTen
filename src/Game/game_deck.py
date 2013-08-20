@@ -10,7 +10,7 @@ class GameDeck(Deck):
     def __init__(self):
         """ Initialize the Game Deck """
         deckInitializer = self.buildDeckInitializer()
-        Deck.__init__(deck_initializer=deckInitializer)
+        Deck.__init__(self, deck_initializer=deckInitializer)
         self.shuffle()
         
     def buildDeckInitializer(self):
@@ -21,3 +21,5 @@ class GameDeck(Deck):
             for color in colors:
                 card = NumberCard(i, color)
                 deckInitializer.addSameItem(card, 2)
+                
+        return deckInitializer

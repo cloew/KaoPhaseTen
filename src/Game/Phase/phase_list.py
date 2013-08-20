@@ -4,7 +4,7 @@ class PhaseList:
     
     def __init__(self, phases):
         """ Initialize the Phase List """
-        self.phases = phase
+        self.phases = phases
         
     @property
     def startingPhase(self):

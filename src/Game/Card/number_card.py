@@ -9,4 +9,4 @@ class NumberCard:
         
     def __repr__(self):
         """ Return the String representation """
-        return self.number
+        return str(self.number)
