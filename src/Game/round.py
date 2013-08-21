@@ -1,4 +1,5 @@
 from Game.game_deck import GameDeck
+from Game.match_pile_manager import MatchPileManager
 
 class Round:
     """ Represents a round of the game Phase Ten """
@@ -7,8 +8,10 @@ class Round:
         """ Initialize the Round with the players who are playing """
         self.players = players
         self.gameDeck = GameDeck()
+        self.matchPileManager = MatchPileManager()
         
         for player in self.players:
+            player.matchPileManager = MatchPileManager()
             player.addToHand(self.gameDeck.draw(10))
             
     @property
