@@ -13,6 +13,11 @@ class PlayerRoundWrapper:
         """ Adds the given cards to the player's hand """
         self.hand += cards
         
+    def hit(self, match, card):
+        """ Hit a card on a match """
+        match.add(card)
+        self.hand.remove(card)
+        
     def completePhase(self, matchesAndCards):
         """ Completes the Player's current phase """
         for match in matchesAndCards:
