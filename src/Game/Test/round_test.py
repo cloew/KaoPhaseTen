@@ -13,6 +13,9 @@ class over(unittest.TestCase):
         self.player2 = Player(StandardPhaseList)
         self.round = Round([self.player1, self.player2])
         
+        self.player1 = self.round.players[0]
+        self.player2 = self.round.players[1]
+        
     def playersWithHands(self):
         """ Test that when the players have cards in their hands the round is not over """
         self.player1.hand = [None]
