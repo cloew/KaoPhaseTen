@@ -34,9 +34,17 @@ class completePhase(unittest.TestCase):
         """ Test that the cards used to complete the phase are removed from the player's hand """
         self.playerRoundWrapper.completePhase(self.matches)
         assert self.playerRoundWrapper.hand == [], "Cards used to match the phase should be removed from the player's hand"
+    
+    def pileAdded(self):
+        """ Test that the cards used to complete the phase are added to a Match Pile """
+        self.playerRoundWrapper.completePhase(self.matches)
+        for match in self.matches:
+            for pile in self.matchPileManager.piles:
+                if pile.match is match:
+                    assert pile.cards == self.matches[match], "Each match of the phase should have a pile with the cards used to complete it"
 
 # Collect all test cases in this class
-testcasesCompletePhase = ["nextPhase", "cardsRemoved"]
+testcasesCompletePhase = ["nextPhase", "cardsRemoved", "pileAdded"]
 suiteCompletePhase = unittest.TestSuite(map(completePhase, testcasesCompletePhase))
 
 ##########################################################

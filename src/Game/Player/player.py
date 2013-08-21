@@ -1,4 +1,3 @@
-from Game.match_pile import MatchPile
 
 class Player:
     """ Represents a Player """

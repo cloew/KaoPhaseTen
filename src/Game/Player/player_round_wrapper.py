@@ -1,3 +1,4 @@
+from Game.match_pile import MatchPile
 
 class PlayerRoundWrapper:
     """ Wrapper for the player for a round of the game """
@@ -17,6 +18,7 @@ class PlayerRoundWrapper:
         for match in matchesAndCards:
             cards = matchesAndCards[match]
             pile = MatchPile(match, cards)
+            self.matchPileManager.addPile(pile)
             for card in cards:
                 self.hand.remove(card)
         
