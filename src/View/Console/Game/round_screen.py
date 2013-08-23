@@ -1,3 +1,5 @@
+from hand_view import HandView
+from match_pile_view import MatchPileView
 
 class RoundScreen:
     """ Represents the screen for a round """
@@ -5,15 +7,11 @@ class RoundScreen:
     def __init__(self, round):
         """ Initialize the Screen """
         self.round = round
+        self.handView = HandView(self.round.players)
+        self.matchPileView = MatchPileView(self.round.matchPileManager)
     
     def draw(self):
         """ Draw the Round Screen """
-        if len(self.round.matchPileManager.piles) == 0:
-            print "Match Piles\r"
-            for matchPile in self.round.matchPileManager.piles:
-                print "{0}\r".format(matchPile.cards)
-        
+        self.matchPileView.draw()
         print "\r"
-        print "Hand\r"
-        for player in self.round.players:
-            print "{0}\r".format(player.hand)
+        self.handView.draw()
