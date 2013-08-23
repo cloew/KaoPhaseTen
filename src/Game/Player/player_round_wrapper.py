@@ -8,6 +8,7 @@ class PlayerRoundWrapper:
         self.player = player
         self.hand = hand
         self.matchPileManager = matchPileManager
+        self.phaseCompleted = False
         
     def addToHand(self, cards):
         """ Adds the given cards to the player's hand """
@@ -20,6 +21,8 @@ class PlayerRoundWrapper:
         
     def completePhase(self, matchesAndCards):
         """ Completes the Player's current phase """
+        self.phaseCompleted = True
+        
         for match in matchesAndCards:
             cards = matchesAndCards[match]
             pile = MatchPile(match, cards)
