@@ -11,10 +11,22 @@ class PlayerTurnController(ConsoleController):
         self.matchPileManager = matchPileManager
         self.deck = deck
         screen = PlayerTurnScreen(self.player, self.matchPileManager)
-        ConsoleController.__init__(self, screen, commands={'1':self.discardACard})
+        ConsoleController.__init__(self, screen, commands={'1':self.discardACard,
+                                                           '2':self.discardACard,
+                                                           '3':self.discardACard,
+                                                           '4':self.discardACard,
+                                                           '5':self.discardACard,
+                                                           '6':self.discardACard,
+                                                           '7':self.discardACard,
+                                                           '8':self.discardACard,
+                                                           '9':self.discardACard,
+                                                           '0':self.discardACard,
+                                                           '-':self.discardACard})
         
-    def discardACard(self):
+    def discardACard(self, event):
         """ Discard a card from the player's hand """
-        card = self.player.hand[0]
+        items = ['1','2','3','4','5','6','7','8','9','0','-']
+        index = items.index(event)
+        card = self.player.hand[index]
         self.player.discard(card, self.deck)
         self.stopRunning()
