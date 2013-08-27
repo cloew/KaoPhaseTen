@@ -13,6 +13,10 @@ class RoundController(ConsoleController):
         screen = RoundScreen(self.round)
         ConsoleController.__init__(self, screen)
         
+    def isRunning(self):
+        """ Return if the Round is still going """
+        return ConsoleController.isRunning(self) and not self.round.over
+        
     def performGameCycle(self):
         """ Perform a Game Cycle Event """
         for player in self.round.players:
