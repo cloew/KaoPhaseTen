@@ -19,7 +19,7 @@ class completePhase(unittest.TestCase):
         self.phase1 = Phase([self.match1, self.match2])
         self.phase2 = Phase([])
         self.phaseList = PhaseList([self.phase1, self.phase2])
-        self.player = Player(self.phaseList)
+        self.player = Player("", self.phaseList)
         self.matchPileManager = MatchPileManager()
         self.hand = [NumberCard(1, None), NumberCard(2, None)]
         self.playerRoundWrapper = PlayerRoundWrapper(self.player, self.hand, self.matchPileManager)
@@ -62,7 +62,7 @@ class discard(unittest.TestCase):
         self.phase1 = Phase([self.match1, self.match2])
         self.phase2 = Phase([])
         self.phaseList = PhaseList([self.phase1, self.phase2])
-        self.player = Player(self.phaseList)
+        self.player = Player("", self.phaseList)
         self.matchPileManager = MatchPileManager()
         self.hand = [NumberCard(1, None), NumberCard(2, None)]
         self.playerRoundWrapper = PlayerRoundWrapper(self.player, list(self.hand), self.matchPileManager)

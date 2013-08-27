@@ -16,7 +16,7 @@ class completePhase(unittest.TestCase):
         self.phase1 = Phase([self.match1, self.match2])
         self.phase2 = Phase([])
         self.phaseList = PhaseList([self.phase1, self.phase2])
-        self.player = Player(self.phaseList)
+        self.player = Player("", self.phaseList)
         
     def nextPhase(self):
         """ Test that the player is now on the next phase """

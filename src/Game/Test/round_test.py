@@ -9,8 +9,8 @@ class over(unittest.TestCase):
     
     def  setUp(self):
         """ Build the Round and Players for the test """
-        self.player1 = Player(StandardPhaseList)
-        self.player2 = Player(StandardPhaseList)
+        self.player1 = Player("", StandardPhaseList)
+        self.player2 = Player("", StandardPhaseList)
         self.round = Round([self.player1, self.player2])
         
         self.player1 = self.round.players[0]
