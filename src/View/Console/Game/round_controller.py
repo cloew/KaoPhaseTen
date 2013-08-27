@@ -1,6 +1,7 @@
 from Game.round import Round
 from View.Console.Game.player_turn_controller import PlayerTurnController
 from View.Console.Game.round_screen import RoundScreen
+from View.Console.Game.Player.draw_controller import DrawController
 
 from kao_console.ascii import ENDL
 from kao_gui.console.console_controller import ConsoleController
@@ -34,7 +35,7 @@ class RoundController(ConsoleController):
                 
     def runPlayerTurn(self, player):
         """ Run the Player's Turn """
-        cards = self.round.gameDeck.draw()
-        player.addToHand(cards)
+        controller = DrawController(player, self.round.gameDeck)
+        controller.run()
         controller = PlayerTurnController(player, self.round.matchPileManager, self.round.gameDeck)
         controller.run()
