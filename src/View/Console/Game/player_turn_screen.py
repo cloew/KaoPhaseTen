@@ -4,10 +4,10 @@ from match_pile_view import MatchPileView
 class PlayerTurnScreen:
     """ Represents the screen for a player turn """
     
-    def __init__(self, player, matchPileManager):
+    def __init__(self, player, deck, matchPileManager):
         """ Initialize the Screen """
         self.player = player
-        self.headerView = PlayerHeaderView(player, matchPileManager)
+        self.headerView = PlayerHeaderView(player, deck, matchPileManager)
     
     def draw(self):
         """ Draw the Round Screen """

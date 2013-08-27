@@ -13,7 +13,7 @@ class PlayerTurnController(ConsoleController):
         self.player = player
         self.matchPileManager = matchPileManager
         self.deck = deck
-        screen = PlayerTurnScreen(self.player, self.matchPileManager)
+        screen = PlayerTurnScreen(self.player, deck, self.matchPileManager)
         ConsoleController.__init__(self, screen, commands={'1':self.doRelevantAction,
                                                            '2':self.discardACard})
         
