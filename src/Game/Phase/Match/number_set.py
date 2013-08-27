@@ -21,3 +21,7 @@ class NumberSet:
                 return True
         else:
             return False 
+            
+    def __repr__(self):
+        """ Return the String Representation of the Numbered Set """
+        return "Numbered Set of {0}".format(self.count)
