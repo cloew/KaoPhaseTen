@@ -23,6 +23,6 @@ class GameController(ConsoleController):
             controller.run()
             
             if self.game.over:
-                self.screen.message = "Game Over!"
+                self.screen.message = "{0} Won!".format(self.game.winningPlayer)
             else:
                 self.screen.message = "Round Complete!\r\nGet Ready for the next one!"

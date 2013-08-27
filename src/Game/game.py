@@ -18,8 +18,13 @@ class Game:
     @property
     def over(self):
         """ Returns if the game is over """
+        return self.winningPlayer is not None
+            
+    @property
+    def winningPlayer(self):
+        """ Returs the player who won """
         for player in self.players:
             if player.phase is None:
-                return True
+                return player
         else:
-            return False 
+            return None 
