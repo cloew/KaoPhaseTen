@@ -26,12 +26,16 @@ class matched(unittest.TestCase):
         """ Test that no cards returns False """
         assert self.numberSet.matched([self.getNumberCard(), self.getNumberCard(), self.getNumberCard()]), "Assert there is a match when there are enough cards of the same number."
         
+    def moreThanEnoughCards(self):
+        """ Test that more than enough cards returns True """
+        assert self.numberSet.matched([self.getNumberCard(), self.getNumberCard(), self.getNumberCard(), self.getNumberCard()]), "Assert there is a match when more than enough cards are given."
+        
     def getNumberCard(self, number=1):
         """ Returns a Number Card """
         return NumberCard(number, None)
 
 # Collect all test cases in this class
-testcasesMatched = ["noCards", "notEnoughCards", "differentNumberCards", "match"]
+testcasesMatched = ["noCards", "notEnoughCards", "differentNumberCards", "match", "moreThanEnoughCards"]
 suiteMatched = unittest.TestSuite(map(matched, testcasesMatched))
 
 ##########################################################

@@ -1,5 +1,4 @@
 Match
-- Run
 - Colored Set
 
 Card
@@ -12,4 +11,5 @@ Multiple Players
 - Display which player's turn it is
 
 General
+- Make Cards sortable
 - Add Card View to display cards in color
