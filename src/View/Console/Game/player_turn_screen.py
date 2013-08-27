@@ -16,5 +16,8 @@ class PlayerTurnScreen:
         print "\r"
         self.handView.draw()
         
-        print "1: Try to complete the phase.\r"
-        print "2: Discard and end turn."
+        if self.player.phaseCompleted:
+            print "1: Try to hit a match pile.\r"
+        else:
+            print "1: Try to complete the phase.\r"
+        print "2: Discard and end turn.\r"

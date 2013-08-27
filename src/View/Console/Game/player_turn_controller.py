@@ -1,6 +1,7 @@
 from View.Console.Game.player_turn_screen import PlayerTurnScreen
 from View.Console.Game.Phase.complete_phase_controller import CompletePhaseController
 from View.Console.Game.Player.discard_controller import DiscardController
+from View.Console.Game.Player.hit_controller import HitController
 
 from kao_gui.console.console_controller import ConsoleController
 
@@ -13,12 +14,25 @@ class PlayerTurnController(ConsoleController):
         self.matchPileManager = matchPileManager
         self.deck = deck
         screen = PlayerTurnScreen(self.player, self.matchPileManager)
-        ConsoleController.__init__(self, screen, commands={'1':self.tryToCompletePhase,
+        ConsoleController.__init__(self, screen, commands={'1':self.doRelevantAction,
                                                            '2':self.discardACard})
         
-    def tryToCompletePhase(self, event):
+        
+    def doRelevantAction(self, event):
+        """ Do action depending on whether a player has completed their phase """
+        if self.player.phaseCompleted:
+            self.tryToHit()
+        else:
+            self.tryToCompletePhase()
+    
+    def tryToCompletePhase(self):
         """ Let the player try to complete their phase """
         controller = CompletePhaseController(self.player)
+        controller.run()
+        
+    def tryToHit(self):
+        """ Let the player try to hit a match pile """
+        controller = HitController(self.player, self.matchPileManager)
         controller.run()
         
     def discardACard(self, event):
