@@ -10,7 +10,7 @@ class CompleteMatchScreen:
         
     def draw(self):
         """ Draw the Screen """
-        print "{0}\r".format(self.match)
+        print "{0} -- {1}\r".format(self.match, self.match.matched(self.matchesToCards[self.match]))
         print "{0}\r".format(self.matchesToCards[self.match])
         print "\r"
         print "Add a Card to the match\r"
