@@ -12,6 +12,10 @@ class CompletePhaseScreen:
         """ Draw he Screen """
         print "Phase Complete: {0}\r".format(self.player.phase.completable(self.matchesToCards))
         
+        if self.player.phase.completable(self.matchesToCards):
+            print "c. Complete Phase"
+            print "\r"
+        
         for match in self.matchesToCards:
             print "{0}: {1} -- {2}\r".format(match, self.matchesToCards[match], match.matched(self.matchesToCards[match]))
             

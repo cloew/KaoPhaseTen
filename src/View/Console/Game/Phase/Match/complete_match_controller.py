@@ -28,6 +28,7 @@ class CompleteMatchController(ConsoleController):
         items = ['1','2','3','4','5','6','7','8','9','0','-']
         if event in items:
             index = items.index(event)
-            card = self.availableCards[index]
-            self.availableCards.remove(card)
-            self.matchesToCards[self.match].append(card)
+            if index < len(self.availableCards):
+                card = self.availableCards[index]
+                self.availableCards.remove(card)
+                self.matchesToCards[self.match].append(card)

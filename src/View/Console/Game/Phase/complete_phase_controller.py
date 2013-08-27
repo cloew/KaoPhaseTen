@@ -16,9 +16,20 @@ class CompletePhaseController(ConsoleController):
         
         self.screen = CompletePhaseScreen(self.player, self.availableCards, self.matchesToCards)
         ConsoleController.__init__(self, self.screen, commands={'1':self.stopRunning,
-                                                                '2':self.tryToCompleteMatch})
+                                                                '2':self.tryToCompleteMatch,
+                                                                '3':self.tryToCompleteMatch,
+                                                                'c':self.completePhase})
         
     def tryToCompleteMatch(self, event):
         """ Try to Complete a Match """
-        controller = CompleteMatchController(self.matchesToCards.keys()[0], self.availableCards, self.matchesToCards)
-        controller.run()
+        items = ['2', '3']
+        if event in items:
+            index = items.index(event)
+            controller = CompleteMatchController(self.matchesToCards.keys()[index], self.availableCards, self.matchesToCards)
+            controller.run()
+            
+    def completePhase(self, event):
+        """ Complete the Phase, if actually possible """
+        if self.player.phase.completable(self.matchesToCards):
+            self.player.completePhase(self.matchesToCards)
+            self.stopRunning()
