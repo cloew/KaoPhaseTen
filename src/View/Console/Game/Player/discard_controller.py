@@ -6,7 +6,7 @@ class DiscardController(ConsoleController):
     """ Controller for a player discarding a card from their hand """
     
     def __init__(self, player, deck):
-        """ Initialize the Player Turn Controller """
+        """ Initialize the Discard Controller """
         self.player = player
         self.deck = deck
         screen = DiscardScreen(self.player)
