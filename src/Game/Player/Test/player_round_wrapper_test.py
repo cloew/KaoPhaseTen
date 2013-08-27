@@ -1,3 +1,4 @@
+from Game.game_deck import GameDeck
 from Game.match_pile_manager import MatchPileManager
 from Game.Card.number_card import NumberCard
 from Game.Phase.phase import Phase
@@ -49,8 +50,42 @@ suiteCompletePhase = unittest.TestSuite(map(completePhase, testcasesCompletePhas
 
 ##########################################################
 
+class discard(unittest.TestCase):
+    """ Test cases of discard """
+    
+    def  setUp(self):
+        """ Build the Player Wrapper and Deck for the test """
+        """ Build the Player and Phase List for the test """
+        self.deck = GameDeck()
+        self.match1 = NumberSet(1)
+        self.match2 = NumberSet(1)
+        self.phase1 = Phase([self.match1, self.match2])
+        self.phase2 = Phase([])
+        self.phaseList = PhaseList([self.phase1, self.phase2])
+        self.player = Player(self.phaseList)
+        self.matchPileManager = MatchPileManager()
+        self.hand = [NumberCard(1, None), NumberCard(2, None)]
+        self.playerRoundWrapper = PlayerRoundWrapper(self.player, list(self.hand), self.matchPileManager)
+        
+    def cardInDiscard(self):
+        """ Test that the card ends up in the discard pile """
+        self.playerRoundWrapper.discard(self.hand[0], self.deck)
+        assert self.deck.topOfDiscardPile() is self.hand[0], "Card should be at the top of the Discard Pile"
+        
+    def cardRemoved(self):
+        """ Test that the card is removed from the players hand """
+        self.playerRoundWrapper.discard(self.hand[0], self.deck)
+        assert not self.hand[0] in self.playerRoundWrapper.hand, "Card should not be in the Player's hand"
+
+# Collect all test cases in this class
+testcasesDiscard = ["cardInDiscard", "cardRemoved"]
+suiteDiscard = unittest.TestSuite(map(discard, testcasesDiscard))
+
+##########################################################
+
 # Collect all test cases in this file
-suites = [suiteCompletePhase]
+suites = [suiteCompletePhase,
+          suiteDiscard]
 suite = unittest.TestSuite(suites)
 
 if __name__ == "__main__":
