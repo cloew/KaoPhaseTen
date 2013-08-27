@@ -6,6 +6,7 @@ class PlayerTurnScreen:
     
     def __init__(self, player, matchPileManager):
         """ Initialize the Screen """
+        self.player = player
         self.handView = HandView(player)
         self.matchPileView = MatchPileView(matchPileManager)
     
@@ -15,4 +16,8 @@ class PlayerTurnScreen:
         print "\r"
         self.handView.draw()
         print "\r"
-        print "\r"
+        print "Discard a Card\r"
+        
+        characters = ['1','2','3','4','5','6','7','8','9','0','-']
+        for i in range(len(self.player.hand)):
+            print "{0}: {1}\r".format(characters[i], self.player.hand[i])

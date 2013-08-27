@@ -18,5 +18,5 @@ class RoundController(ConsoleController):
         for player in self.round.players:
             cards = self.round.gameDeck.draw()
             player.addToHand(cards)
-            controller = PlayerTurnController(player, self.round.matchPileManager)
+            controller = PlayerTurnController(player, self.round.matchPileManager, self.round.gameDeck)
             controller.run()
