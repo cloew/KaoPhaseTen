@@ -13,10 +13,11 @@ class StandardPhaseList(PhaseList):
         
     def buildPhases(self):
         """ Builds and returns the standard phases in a list """
-        phase = Phase([NumberSet(3), NumberSet(3)])
-        phase2 = Phase([NumberSet(3), Run(4)])
-        phase8 = Phase([ColoredSet(7)])
-        phase9 = Phase([NumberSet(5), NumberSet(2)])
-        return [phase, phase2, phase8, phase9]
+        phases = []
+        phases.append(Phase([NumberSet(3), NumberSet(3)]))
+        phases.append(Phase([NumberSet(3), Run(4)]))
+        phases.append(Phase([ColoredSet(7)]))
+        phases.append(Phase([NumberSet(5), NumberSet(2)]))
+        return phases
         
 StandardPhaseList = StandardPhaseList()
