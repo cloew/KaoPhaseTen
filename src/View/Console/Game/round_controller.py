@@ -7,9 +7,9 @@ from kao_gui.console.console_controller import ConsoleController
 class RoundController(ConsoleController):
     """ Represents the Round Controller """
     
-    def __init__(self, players):
+    def __init__(self, round):
         """ Initialize Round Controller """
-        self.round = Round(players)
+        self.round = round
         screen = RoundScreen(self.round)
         ConsoleController.__init__(self, screen)
         
