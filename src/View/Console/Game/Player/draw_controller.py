@@ -9,7 +9,7 @@ class DrawController(ConsoleController):
         """ Initialize the Draw Controller """
         self.player = player
         self.gameDeck = gameDeck
-        screen = DrawScreen()
+        screen = DrawScreen(player)
         ConsoleController.__init__(self, screen, commands={'1':self.drawFromDeck})
         
     def drawFromDeck(self, event):

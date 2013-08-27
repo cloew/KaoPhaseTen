@@ -1,4 +1,4 @@
-from hand_view import HandView
+from View.Console.Game.Player.player_header_view import PlayerHeaderView
 from match_pile_view import MatchPileView
 
 class PlayerTurnScreen:
@@ -7,16 +7,11 @@ class PlayerTurnScreen:
     def __init__(self, player, matchPileManager):
         """ Initialize the Screen """
         self.player = player
-        self.handView = HandView(player)
-        self.matchPileView = MatchPileView(matchPileManager)
+        self.headerView = PlayerHeaderView(player, matchPileManager)
     
     def draw(self):
         """ Draw the Round Screen """
-        print "{0}'s Turn\r".format(self.player)
-        print "\r"
-        self.matchPileView.draw()
-        print "\r"
-        self.handView.draw()
+        self.headerView.draw()
         
         if self.player.phaseCompleted:
             print "1: Try to hit a match pile.\r"
