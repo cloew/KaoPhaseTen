@@ -5,7 +5,7 @@ import sys
 
 def main(args):
     """ Run the main file """
-    game_controller = GameController(1)
+    game_controller = GameController(1, ["Chris"])
     game_controller.run()
     Window.close()
     

@@ -41,3 +41,7 @@ class PlayerRoundWrapper:
                 self.hand.remove(card)
         
         self.player.completePhase()
+        
+    def __repr__(self):
+        """ Return the string representation of the Player """
+        return str(self.player)

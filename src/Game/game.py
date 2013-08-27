@@ -5,11 +5,11 @@ from Game.Player.player import Player
 class Game:
     """ Represents an entire game of Phase Ten """
     
-    def __init__(self, numberOfPlayers,  phaseList=StandardPhaseList):
+    def __init__(self, numberOfPlayers, names,  phaseList=StandardPhaseList):
         """ Initialize the game """
         self.players = []
         for i in range(numberOfPlayers):
-            self.players.append(Player(phaseList))
+            self.players.append(Player(names[i], phaseList))
             
     def getNewRound(self):
         """ Returns a new round for the game """

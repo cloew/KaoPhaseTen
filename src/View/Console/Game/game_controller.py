@@ -8,9 +8,9 @@ from kao_gui.console.console_controller import ConsoleController
 class GameController(ConsoleController):
     """ Controller for a Game """
     
-    def __init__(self, numberOfPlayers):
+    def __init__(self, numberOfPlayers, names):
         """ Initialize the Game Controller """
-        self.game = Game(numberOfPlayers)
+        self.game = Game(numberOfPlayers, names)
         screen = GameScreen(self.game)
         ConsoleController.__init__(self, screen, commands={ENDL:self.nextMessage})
         
