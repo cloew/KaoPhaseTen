@@ -14,6 +14,11 @@ class PlayerRoundWrapper:
         """ Adds the given cards to the player's hand """
         self.hand += cards
         
+    def discard(self, card, deck):
+        """ Discard a card from the player's hand into the deck """
+        self.hand.remove(card)
+        deck.discard(card)
+        
     def hit(self, match, card):
         """ Hit a card on a match """
         match.add(card)
