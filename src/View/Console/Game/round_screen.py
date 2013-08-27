@@ -7,11 +7,14 @@ class RoundScreen:
     def __init__(self, round):
         """ Initialize the Screen """
         self.round = round
-        self.handView = HandView(self.round.players)
+        self.handViews = []
+        for player in self.round.players:
+            self.handViews.append(HandView(player))
         self.matchPileView = MatchPileView(self.round.matchPileManager)
     
     def draw(self):
         """ Draw the Round Screen """
         self.matchPileView.draw()
         print "\r"
-        self.handView.draw()
+        for handView in self.handViews:
+            handView.draw()
