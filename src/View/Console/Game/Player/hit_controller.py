@@ -1,3 +1,4 @@
+from View.Console.Game.Player.hit_pile_controller import HitPileController
 from View.Console.Game.Player.hit_screen import HitScreen
 
 from kao_console.ascii import KAO_UP, KAO_DOWN, ENDL
@@ -17,7 +18,8 @@ class HitController(ConsoleController):
         
     def tryToHitAMatch(self, event):
         """ Try to Hit the selected match pile """
-        
+        controller = HitPileController(self.player, self.screen.selected)
+        controller.run()
         
     def next(self, event):
         """ Select the next match pile """

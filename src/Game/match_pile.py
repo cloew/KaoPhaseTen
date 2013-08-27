@@ -9,7 +9,7 @@ class MatchPile:
         
     def matches(self, card):
         """ Returns if adding the card still has the pile match """
-        return self.match.matches(self.cards + [card])
+        return self.match.matched(self.cards + [card])
         
     def add(self, card):
         """ Add a card to the pile """

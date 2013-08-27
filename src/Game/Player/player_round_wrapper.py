@@ -24,9 +24,9 @@ class PlayerRoundWrapper:
         self.hand.remove(card)
         deck.discard(card)
         
-    def hit(self, match, card):
-        """ Hit a card on a match """
-        match.add(card)
+    def hit(self, matchPile, card):
+        """ Hit a card on a match pile """
+        matchPile.add(card)
         self.hand.remove(card)
         
     def completePhase(self, matchesAndCards):
