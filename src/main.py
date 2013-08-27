@@ -1,16 +1,12 @@
-from Game.game import Game
-
-from View.Console.Game.round_controller import RoundController
+from View.Console.Game.game_controller import GameController
 from kao_gui.console.window import Window
 
 import sys
 
 def main(args):
     """ Run the main file """
-    game = Game(1)
-    round_controller = RoundController(game.getNewRound())
-    
-    round_controller.run()
+    game_controller = GameController(1)
+    game_controller.run()
     Window.close()
     
 
