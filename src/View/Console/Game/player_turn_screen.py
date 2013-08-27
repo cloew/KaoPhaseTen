@@ -15,9 +15,5 @@ class PlayerTurnScreen:
         self.matchPileView.draw()
         print "\r"
         self.handView.draw()
-        print "\r"
-        print "Discard a Card\r"
         
-        characters = ['1','2','3','4','5','6','7','8','9','0','-']
-        for i in range(len(self.player.hand)):
-            print "{0}: {1}\r".format(characters[i], self.player.hand[i])
+        print "1: Discard and end turn."
