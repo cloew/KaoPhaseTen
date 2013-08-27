@@ -8,19 +8,19 @@ class NumberSet:
         
     def matched(self, cards):
         """ Returns if the set of cards matches this match """
-        matchCounts = {}
+        count = 0
+        number = -1
         for card in cards:
             if hasattr(card, "number"):
-                if card.number in matchCounts:
-                    matchCounts[card.number] += 1
-                else:
-                    matchCounts[card.number] = 1
+                if number == -1:
+                    number = card.number
                     
-        for number in matchCounts:
-            if matchCounts[number] >= self.count:
-                return True
-        else:
-            return False 
+                if number == card.number:
+                    count += 1
+                else:
+                    return False
+        
+        return count >= self.count
             
     def __repr__(self):
         """ Return the String Representation of the Numbered Set """
