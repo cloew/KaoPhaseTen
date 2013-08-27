@@ -1,3 +1,5 @@
+from View.Console.Game.Card.card_list_view import CardListView
+from View.Console.Game.Card.card_selection_view import CardSelectionView
 
 class CompleteMatchScreen:
     """ Represents the view for Completing a Match """
@@ -11,10 +13,9 @@ class CompleteMatchScreen:
     def draw(self):
         """ Draw the Screen """
         print "{0} -- {1}\r".format(self.match, self.match.matched(self.matchesToCards[self.match]))
-        print "{0}\r".format(self.matchesToCards[self.match])
+        print "{0}\r".format(CardListView(self.matchesToCards[self.match]).draw())
         print "\r"
         print "Add a Card to the match\r"
         
-        characters = ['1','2','3','4','5','6','7','8','9','0','-']
-        for i in range(len(self.availableCards)):
-            print "{0}: {1}\r".format(characters[i], self.availableCards[i])
+        cardSelectionView = CardSelectionView(self.availableCards)
+        cardSelectionView.draw()

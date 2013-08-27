@@ -1,3 +1,4 @@
+from View.Console.Game.Card.card_list_view import CardListView
 
 class CompletePhaseScreen:
     """ Screen for a player to try and complete their phase """
@@ -17,7 +18,7 @@ class CompletePhaseScreen:
             print "\r"
         
         for match in self.matchesToCards:
-            print "{0}: {1} -- {2}\r".format(match, self.matchesToCards[match], match.matched(self.matchesToCards[match]))
+            print "{0}: {1} -- {2}\r".format(match, CardListView(self.matchesToCards[match]).draw(), match.matched(self.matchesToCards[match]))
             
         print "\r"
         print "1. Give Up\r"

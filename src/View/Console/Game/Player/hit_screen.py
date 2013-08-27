@@ -1,3 +1,4 @@
+from View.Console.Game.Card.card_list_view import CardListView
 
 class HitScreen:
     """ Represents the view for a *** """
@@ -11,9 +12,10 @@ class HitScreen:
         """ Draw the Matches """
         for pile in self.matchPiles:
             if pile is self.selected:
-                print "--> {0}\r".format(pile.cards)
+                header = "-->"
             else:
-                print "    {0}\r".format(pile.cards)
+                header = "   "
+            print "{0} {1}\r".format(header, CardListView(pile.cards).draw())
                 
     def selectNextPile(self):
         """ Select the Next Pile, if possible """

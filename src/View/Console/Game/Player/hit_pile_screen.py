@@ -1,3 +1,5 @@
+from View.Console.Game.Card.card_list_view import CardListView
+from View.Console.Game.Card.card_selection_view import CardSelectionView
 
 class HitPileScreen:
     """ Represents the view for htting a pile with a card """
@@ -10,9 +12,9 @@ class HitPileScreen:
     def draw(self):
         """ Draw the screen """
         print "Pile for {0}\r".format(self.matchPile.match)
-        print "{0}\r".format(self.matchPile.cards)
+        print "{0}\r".format(CardListView(self.matchPile.cards).draw())
         print "\r"
         print "Select card to hit with:\r"
-        characters = ['1','2','3','4','5','6','7','8','9','0','-']
-        for i in range(len(self.player.hand)):
-            print "{0}: {1}\r".format(characters[i], self.player.hand[i])
+        
+        cardSelectionView = CardSelectionView(self.player.hand)
+        cardSelectionView.draw()
