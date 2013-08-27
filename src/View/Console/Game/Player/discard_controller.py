@@ -25,7 +25,8 @@ class DiscardController(ConsoleController):
     def discardACard(self, event):
         """ Discard a card from the player's hand """
         items = ['1','2','3','4','5','6','7','8','9','0','-']
-        index = items.index(event)
-        card = self.player.hand[index]
-        self.player.discard(card, self.deck)
-        self.stopRunning()
+        if event in items:
+            index = items.index(event)
+            card = self.player.hand[index]
+            self.player.discard(card, self.deck)
+            self.stopRunning()
