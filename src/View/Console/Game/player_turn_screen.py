@@ -12,6 +12,8 @@ class PlayerTurnScreen:
     
     def draw(self):
         """ Draw the Round Screen """
+        print "{0}'s Turn\r".format(self.player)
+        print "\r"
         self.matchPileView.draw()
         print "\r"
         self.handView.draw()
