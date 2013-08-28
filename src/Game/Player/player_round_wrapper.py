@@ -9,6 +9,7 @@ class PlayerRoundWrapper:
         self.hand = hand
         self.matchPileManager = matchPileManager
         self.phaseCompleted = False
+        self.hand.sort()
     
     @property
     def phase(self):
@@ -18,6 +19,7 @@ class PlayerRoundWrapper:
     def addToHand(self, cards):
         """ Adds the given cards to the player's hand """
         self.hand += cards
+        self.hand.sort()
         
     def discard(self, card, deck):
         """ Discard a card from the player's hand into the deck """
