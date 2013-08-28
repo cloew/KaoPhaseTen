@@ -1,3 +1,5 @@
+from Game.globals import BLUE, GREEN, RED, YELLOW
+
 from kao_gui.console.console_widget import ConsoleWidget
 
 class NumberCardView(ConsoleWidget):

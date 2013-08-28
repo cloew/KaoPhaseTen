@@ -9,7 +9,7 @@ def GetCardView(card):
     viewClasses = {NumberCard.type:NumberCardView,
                    WildCard.type:WildCardView}
                    
-    if card.class.type in viewClasses:
-        return viewClasses[card.class.type](card)
+    if card.__class__.type in viewClasses:
+        return viewClasses[card.__class__.type](card)
     else:
         return None 
