@@ -1,4 +1,5 @@
 from View.Console.Game.Setup.game_setup_screen import GameSetupScreen
+from View.Console.Game.Setup.player_name_controller import PlayerNameController
 
 from kao_gui.console.console_controller import ConsoleController
 
@@ -7,6 +8,8 @@ class GameSetupController(ConsoleController):
     
     def __init__(self):
         """ Initialize the Game Setup Controller """
+        self.playerCount = 0
+        self.names = []
         screen = GameSetupScreen()
         ConsoleController.__init__(self, screen, commands={'1':self.setPlayerCount,
                                                            '2':self.setPlayerCount,
@@ -18,3 +21,10 @@ class GameSetupController(ConsoleController):
     def setPlayerCount(self, event):
         """ Set the player Count """
         self.playerCount = int(event)
+        
+        for i in range(self.playerCount):
+            controller = PlayerNameController()
+            controller.run()
+            self.names.append(controller.name)
+            
+        self.stopRunning()
