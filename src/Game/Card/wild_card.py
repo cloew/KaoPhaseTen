@@ -6,18 +6,10 @@ class WildCard:
         
     def __cmp__(self, other):
         """ Compare a card to another card """
-        if self.type is NumberCard.type and other.type is NumberCard.type:
-            return self.number.__cmp(other.number)
+        if hasattr(self, "number") and other.type is NumberCard.type:
+            return self.number.__cmp__(other.number)
         else:
             return cmp(self.type, other.type)
-                
-    @property
-    def type(self):
-        """ Return the type of the Wild Card """
-        if hasattr(self, "number"):
-            return NumberCard.type
-        else:
-            return WildCard.type
         
     def __repr__(self):
         """ Return the String representation """
