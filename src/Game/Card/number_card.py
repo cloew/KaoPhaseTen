@@ -10,22 +10,12 @@ class NumberCard:
         
     def __cmp__(self, other):
         """ Compare a card to another card """
-        if self.type < other.type:
-            return -1
-        elif self.type > other.type:
-            return 1
-        else:
-            if self.number < other.number:
-                return -1
-            elif self.number > other.number:
-                return 1
-            else:
-                if self.color < other.color:
-                    return -1
-                elif self.color > other.color:
-                    return 1
-                else:
-                    return 0
+        retVal = cmp(self.type, other.type)
+        if retVal == 0:
+            retVal = self.number.__cmp__(other.number)
+            if retVal == 0:
+                return self.color.__cmp__(other.color)
+        return retVal
         
     def __repr__(self):
         """ Return the String representation """

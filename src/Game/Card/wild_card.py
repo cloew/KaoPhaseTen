@@ -7,19 +7,9 @@ class WildCard:
     def __cmp__(self, other):
         """ Compare a card to another card """
         if self.type is NumberCard.type and other.type is NumberCard.type:
-            if self.number < other.number:
-                return -1
-            elif self.number > other.number:
-                return 1
-            else:
-                return -1
+            return self.number.__cmp(other.number)
         else:
-            if self.type < other.type:
-                return -1
-            elif self.type > other.type:
-                return 1
-            else:
-                return 0
+            return cmp(self.type, other.type)
                 
     @property
     def type(self):
