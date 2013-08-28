@@ -1,4 +1,5 @@
 from Game.Card.number_card import NumberCard
+from Game.Card.wild_card import WildCard
 from Game.Phase.Match.run import Run
 
 import unittest
@@ -29,13 +30,31 @@ class matched(unittest.TestCase):
     def moreThanEnoughCards(self):
         """ Test that more than enough cards returns True """
         assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), self.getNumberCard(3), self.getNumberCard(4)]), "Assert there is a match when more than enough cards are given."
+    
+    def wildAtBeginning(self):
+        """ Test that a wild can match at the beginning """
+        assert self.run.matched([WildCard(), self.getNumberCard(2), self.getNumberCard(3)]), "Assert there is a match when a wild is used at the beginning."
+    
+    def wildInMiddle(self):
+        """ Test that a wild can match in the middle """
+        assert self.run.matched([self.getNumberCard(1), WildCard(), self.getNumberCard(3)]), "Assert there is a match when a wild is used in the middle."
+        
+    def wildAtEnd(self):
+        """ Test that a wild can match at the end """
+        assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), WildCard()]), "Assert there is a match when a wild is used at the end."
+        
+    def wildReplaced(self):
+        """ Test that replacing a wild cannot match """
+        wildCard = WildCard()
+        assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), wildCard]), "Assert there is a match when a wild is used at the end."
+        assert not self.run.matched([self.getNumberCard(1), self.getNumberCard(2), wildCard, self.getNumberCard(3)]), "Assert there is no match when a wild is replaced."
         
     def getNumberCard(self, number=1):
         """ Returns a Number Card """
         return NumberCard(number, None)
 
 # Collect all test cases in this class
-testcasesMatched = ["noCards", "notEnoughCards", "gap", "match", "moreThanEnoughCards"]
+testcasesMatched = ["noCards", "notEnoughCards", "gap", "match", "moreThanEnoughCards", "wildInMiddle", "wildAtEnd", "wildReplaced"]
 suiteMatched = unittest.TestSuite(map(matched, testcasesMatched))
 
 ##########################################################
