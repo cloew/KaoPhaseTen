@@ -6,7 +6,7 @@ class MatchPile:
         """ Initialize the Match Pile """
         self.match = match
         self.cards = cards
-        self.cards.sort()
+        self.savePile()
         
     def matches(self, card):
         """ Returns if adding the card still has the pile match """
@@ -15,4 +15,9 @@ class MatchPile:
     def add(self, card):
         """ Add a card to the pile """
         self.cards.append(card)
+        self.savePile()
+        
+    def savePile(self):
+        """ Save the Pile """
         self.cards.sort()
+        self.match.matched(self.cards, store=True)

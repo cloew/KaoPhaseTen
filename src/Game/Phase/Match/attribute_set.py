@@ -8,7 +8,7 @@ class AttributeSet:
         """ Initialize the Number Set """
         self.count = count
         
-    def matched(self, cards):
+    def matched(self, cards, store=False):
         """ Returns if the set of cards matches this match """
         count = 0
         cardSetValue = -1

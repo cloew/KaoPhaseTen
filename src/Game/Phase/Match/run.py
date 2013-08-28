@@ -8,7 +8,7 @@ class Run:
         """ Initialize the Number Set """
         self.count = count
         
-    def matched(self, cards):
+    def matched(self, cards, store=False):
         """ Returns if the set of cards matches this match """
         start = -1
         stop = -1
@@ -19,7 +19,8 @@ class Run:
         
         for index in wildCardIndices:
             cardNumbers[index:index] = [cardNumbers[index-1]+1]
-            cards[index].number = cardNumbers[index-1]+1
+            if store:
+                cards[index].number = cardNumbers[index-1]+1
         
         for number in cardNumbers:
             if start == -1:

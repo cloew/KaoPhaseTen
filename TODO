@@ -4,3 +4,9 @@ Card
 
 General
 - Rotate the player who starts
+
+
+Potential Issues:
+- Wild Cards may be abd with matches because of the saving the number thing...
+- May need to add a store parameter to the matched function that stores the value if its true
+- Then when completing a phase the values are stored...

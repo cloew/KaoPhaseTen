@@ -47,14 +47,20 @@ class matched(unittest.TestCase):
         """ Test that replacing a wild cannot match """
         wildCard = WildCard()
         assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), wildCard]), "Assert there is a match when a wild is used at the end."
-        assert not self.run.matched([self.getNumberCard(1), self.getNumberCard(2), wildCard, self.getNumberCard(3)]), "Assert there is no match when a wild is replaced."
+        assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), self.getNumberCard(3), wildCard]), "Assert there is a match when a wild is replaced."
+        
+    def wildReplacedStored(self):
+        """ Test that replacing a wild cannot match when the value is stored """
+        wildCard = WildCard()
+        assert self.run.matched([self.getNumberCard(1), self.getNumberCard(2), wildCard], store=True), "Assert there is a match when a wild is used at the end."
+        assert not self.run.matched([self.getNumberCard(1), self.getNumberCard(2), self.getNumberCard(3), wildCard]), "Assert there is no match when a wild is replaced and the value stored."
         
     def getNumberCard(self, number=1):
         """ Returns a Number Card """
         return NumberCard(number, None)
 
 # Collect all test cases in this class
-testcasesMatched = ["noCards", "notEnoughCards", "gap", "match", "moreThanEnoughCards", "wildInMiddle", "wildAtEnd", "wildReplaced"]
+testcasesMatched = ["noCards", "notEnoughCards", "gap", "match", "moreThanEnoughCards", "wildInMiddle", "wildAtEnd", "wildReplaced", "wildReplacedStored"]
 suiteMatched = unittest.TestSuite(map(matched, testcasesMatched))
 
 ##########################################################
