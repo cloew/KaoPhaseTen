@@ -1,7 +1,7 @@
 
 class NumberCard:
     """ Represents a number card """
-    TYPE = "STANDARD"
+    type = "NUMBER"
     
     def __init__(self, number, color):
         """ Initialize the Number Card """
@@ -10,17 +10,22 @@ class NumberCard:
         
     def __cmp__(self, other):
         """ Compare a card to another card """
-        if self.number < other.number:
+        if self.type < other.type:
             return -1
-        elif self.number > other.number:
+        elif self.type > other.type:
             return 1
         else:
-            if self.color < other.color:
+            if self.number < other.number:
                 return -1
-            elif self.color > other.color:
+            elif self.number > other.number:
                 return 1
             else:
-                return 0
+                if self.color < other.color:
+                    return -1
+                elif self.color > other.color:
+                    return 1
+                else:
+                    return 0
         
     def __repr__(self):
         """ Return the String representation """
