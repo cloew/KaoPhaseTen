@@ -1,4 +1,4 @@
-from View.Console.Game.Card.card_view import CardView
+from View.Console.Game.Card.card_view_factory import GetCardView
 
 from kao_gui.console.console_widget import ConsoleWidget
 
@@ -13,4 +13,4 @@ class CardSelectionView(ConsoleWidget):
         """ Draw the Widget """
         characters = ['1','2','3','4','5','6','7','8','9','0','-']
         for i in range(len(self.cards)):
-            print "{0}: {1}\r".format(characters[i], CardView(self.cards[i]).draw())
+            print "{0}: {1}\r".format(characters[i], GetCardView(self.cards[i]).draw())

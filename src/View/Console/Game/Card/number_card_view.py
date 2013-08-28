@@ -1,9 +1,7 @@
-from Game.globals import BLUE, GREEN, RED, YELLOW
-
 from kao_gui.console.console_widget import ConsoleWidget
 
-class CardView(ConsoleWidget):
-    """ Represents the view for a Card """
+class NumberCardView(ConsoleWidget):
+    """ Represents the view for a Number Card """
     
     def __init__(self, card):
         """ Initialize the view """
