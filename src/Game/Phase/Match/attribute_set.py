@@ -1,3 +1,5 @@
+from Game.Card.number_card import NumberCard
+from Game.Card.wild_card import WildCard
 
 class AttributeSet:
     """ Represents a set based on a card attribute """
@@ -11,7 +13,7 @@ class AttributeSet:
         count = 0
         cardSetValue = -1
         for card in cards:
-            if hasattr(card, self.comparisonAttribute):
+            if card.type is NumberCard.type:
                 if cardSetValue == -1:
                     cardSetValue = getattr(card, self.comparisonAttribute)
                     
@@ -19,5 +21,9 @@ class AttributeSet:
                     count += 1
                 else:
                     return False
+            elif card.type is WildCard.type:
+                count += 1
+            else:
+                return False
         
         return count >= self.count

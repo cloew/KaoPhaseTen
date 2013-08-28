@@ -1,7 +1,7 @@
 
 class WildCard:
     """ Represents a Wild Card """
-     type = "WILD"
+    type = "WILD"
         
     def __cmp__(self, other):
         """ Compare a card to another card """

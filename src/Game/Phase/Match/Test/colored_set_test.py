@@ -1,5 +1,6 @@
 from Game.globals import BLUE, GREEN, RED, YELLOW
 from Game.Card.number_card import NumberCard
+from Game.Card.wild_card import WildCard
 from Game.Phase.Match.colored_set import ColoredSet
 
 import unittest
@@ -31,12 +32,16 @@ class matched(unittest.TestCase):
         """ Test that more than enough cards returns True """
         assert self.colorSet.matched([self.getNumberCard(), self.getNumberCard(), self.getNumberCard(), self.getNumberCard()]), "Assert there is a match when more than enough cards are given."
         
+    def handleWildCard(self):
+        """ Test that a wild card can complete the match """
+        assert self.colorSet.matched([self.getNumberCard(), self.getNumberCard(), WildCard()]), "Assert there is a match when a wild is used."
+        
     def getNumberCard(self, color=BLUE):
         """ Returns a Number Card """
         return NumberCard(1, color)
 
 # Collect all test cases in this class
-testcasesMatched = ["noCards", "notEnoughCards", "differentNumberCards", "match", "moreThanEnoughCards"]
+testcasesMatched = ["noCards", "notEnoughCards", "differentNumberCards", "match", "moreThanEnoughCards", "handleWildCard"]
 suiteMatched = unittest.TestSuite(map(matched, testcasesMatched))
 
 ##########################################################
