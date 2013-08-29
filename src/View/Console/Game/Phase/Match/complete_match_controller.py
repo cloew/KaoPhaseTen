@@ -11,17 +11,17 @@ class CompleteMatchController(ConsoleController):
         self.availableCards = availableCards
         self.matchesToCards = matchesToCards
         self.screen = CompleteMatchScreen(match, availableCards, matchesToCards)
-        ConsoleController.__init__(self, self.screen, commands={'1':self.addCard,
-                                                                '2':self.addCard,
-                                                                '3':self.addCard,
-                                                                '4':self.addCard,
-                                                                '5':self.addCard,
-                                                                '6':self.addCard,
-                                                                '7':self.addCard,
-                                                                '8':self.addCard,
-                                                                '9':self.addCard,
-                                                                '0':self.addCard,
-                                                                '-':self.addCard})
+        ConsoleController.__init__(self, self.screen, cancellable=True, commands={'1':self.addCard,
+                                                                                  '2':self.addCard,
+                                                                                  '3':self.addCard,
+                                                                                  '4':self.addCard,
+                                                                                  '5':self.addCard,
+                                                                                  '6':self.addCard,
+                                                                                  '7':self.addCard,
+                                                                                  '8':self.addCard,
+                                                                                  '9':self.addCard,
+                                                                                  '0':self.addCard,
+                                                                                  '-':self.addCard})
                                                                           
     def addCard(self, event):
         """ Add a Card """

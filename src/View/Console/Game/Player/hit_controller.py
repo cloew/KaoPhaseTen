@@ -12,9 +12,9 @@ class HitController(ConsoleController):
         self.player = player
         self.matchPileManager = matchPileManager
         screen = HitScreen(matchPileManager)
-        ConsoleController.__init__(self, screen, commands={KAO_UP:self.previous,
-                                                           KAO_DOWN:self.next,
-                                                           ENDL:self.tryToHitAMatch})
+        ConsoleController.__init__(self, screen, cancellable=True, commands={KAO_UP:self.previous,
+                                                                             KAO_DOWN:self.next,
+                                                                             ENDL:self.tryToHitAMatch})
         
     def tryToHitAMatch(self, event):
         """ Try to Hit the selected match pile """
