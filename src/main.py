@@ -6,14 +6,13 @@ import sys
 
 def main(args):
     """ Run the main file """
-    controller = GameSetupController()
-    controller.run()
+    with Window.window() as window:
+        controller = GameSetupController()
+        controller.run()
+        
+        if controller.playerCount > 0 and len(controller.names) == controller.playerCount:
+            game_controller = GameController(controller.playerCount, controller.names)
+            game_controller.run()
     
-    if controller.playerCount > 0:
-        game_controller = GameController(controller.playerCount, controller.names)
-        game_controller.run()
-        Window.close()
-    
-
 if __name__ == "__main__":
     main(sys.argv[1:])

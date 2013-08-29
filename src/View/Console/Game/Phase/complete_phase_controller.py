@@ -25,8 +25,7 @@ class CompletePhaseController(ConsoleController):
         items = ['2', '3']
         if event in items:
             index = items.index(event)
-            controller = CompleteMatchController(self.matchesToCards.keys()[index], self.availableCards, self.matchesToCards)
-            controller.run()
+            self.runController(CompleteMatchController(self.matchesToCards.keys()[index], self.availableCards, self.matchesToCards))
             
     def completePhase(self, event):
         """ Complete the Phase, if actually possible """

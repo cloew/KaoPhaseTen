@@ -14,11 +14,16 @@ class PlayerNameController(ConsoleController):
         ConsoleController.__init__(self, screen)
         self.index = 0
         self.addCommands(string.printable, self.addCharacterToName)
-        self.addCommand(ENDL, self.stopRunning)
+        self.addCommand(ENDL, self.submitName)
         
     def addCharacterToName(self, event):
         """ Add Character to the name """
         self.screen.name += event
+        
+    def submitName(self, event):
+        """ Submit the Name if it has an actual length """
+        if self.name != "":
+            self.stopRunning()
         
     @property
     def name(self):

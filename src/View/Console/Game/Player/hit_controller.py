@@ -18,8 +18,7 @@ class HitController(ConsoleController):
         
     def tryToHitAMatch(self, event):
         """ Try to Hit the selected match pile """
-        controller = HitPileController(self.player, self.screen.selected)
-        controller.run()
+        self.runController(HitPileController(self.player, self.screen.selected))
         
     def next(self, event):
         """ Select the next match pile """

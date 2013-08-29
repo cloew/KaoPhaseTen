@@ -19,8 +19,7 @@ class GameController(ConsoleController):
         if self.game.over:
             self.stopRunning()
         else:
-            controller = RoundController(self.game.getNewRound())
-            controller.run()
+            self.runController(RoundController(self.game.getNewRound()))
             
             if self.game.over:
                 self.screen.message = "{0} Won!".format(self.game.winningPlayer)

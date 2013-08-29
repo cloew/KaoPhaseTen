@@ -35,7 +35,5 @@ class RoundController(ConsoleController):
                 
     def runPlayerTurn(self, player):
         """ Run the Player's Turn """
-        controller = DrawController(player, self.round.gameDeck)
-        controller.run()
-        controller = PlayerTurnController(player, self.round.matchPileManager, self.round.gameDeck)
-        controller.run()
+        self.runController(DrawController(player, self.round.gameDeck))
+        self.runController(PlayerTurnController(player, self.round.matchPileManager, self.round.gameDeck))

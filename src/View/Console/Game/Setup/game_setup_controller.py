@@ -24,7 +24,8 @@ class GameSetupController(ConsoleController):
         
         for i in range(self.playerCount):
             controller = PlayerNameController()
-            controller.run()
-            self.names.append(controller.name)
+            self.runController(controller)
+            if controller.name != "":
+                self.names.append(controller.name)
             
         self.stopRunning()

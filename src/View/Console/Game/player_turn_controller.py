@@ -27,16 +27,13 @@ class PlayerTurnController(ConsoleController):
     
     def tryToCompletePhase(self):
         """ Let the player try to complete their phase """
-        controller = CompletePhaseController(self.player)
-        controller.run()
+        self.runController(CompletePhaseController(self.player))
         
     def tryToHit(self):
         """ Let the player try to hit a match pile """
-        controller = HitController(self.player, self.matchPileManager)
-        controller.run()
+        self.runController(HitController(self.player, self.matchPileManager))
         
     def discardACard(self, event):
         """ Discard a card from the player's hand """
-        controller = DiscardController(self.player, self.deck)
-        controller.run()
+        self.runController(DiscardController(self.player, self.deck))
         self.stopRunning()
