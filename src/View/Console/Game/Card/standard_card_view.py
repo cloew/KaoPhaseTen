@@ -9,4 +9,4 @@ class StandardCardView(ConsoleWidget):
         
     def draw(self):
         """ Draw the Widget """
-        return str(card)
+        return str(self.card)
