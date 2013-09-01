@@ -16,8 +16,14 @@ class StandardPhaseList(PhaseList):
         phases = []
         phases.append(Phase([NumberSet(3), NumberSet(3)]))
         phases.append(Phase([NumberSet(3), Run(4)]))
+        phases.append(Phase([NumberSet(4), Run(4)]))
+        phases.append(Phase([Run(7)]))
+        phases.append(Phase([Run(8)]))
+        phases.append(Phase([Run(9)]))
+        phases.append(Phase([NumberSet(4), NumberSet(4)]))
         phases.append(Phase([ColoredSet(7)]))
         phases.append(Phase([NumberSet(5), NumberSet(2)]))
+        phases.append(Phase([NumberSet(5), NumberSet(3)]))
         return phases
         
 StandardPhaseList = StandardPhaseList()
