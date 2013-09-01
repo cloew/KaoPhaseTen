@@ -15,5 +15,8 @@ class RoundScreen:
         self.matchPileView.draw()
         print "\r"
         
-        print "{0}'s Turn.\r".format(self.currentPlayer)
+        if self.currentPlayer.skipped:
+            print "{0}! You got skipped!\r".format(self.currentPlayer)
+        else:
+            print "{0}'s Turn.\r".format(self.currentPlayer)
         print "Press Enter when ready to begin.\r"
