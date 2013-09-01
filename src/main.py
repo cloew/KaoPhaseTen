@@ -6,7 +6,7 @@ import sys
 
 def main(args):
     """ Run the main file """
-    with Window.window() as window:
+    with Window.window():
         controller = GameSetupController()
         controller.run()
         
