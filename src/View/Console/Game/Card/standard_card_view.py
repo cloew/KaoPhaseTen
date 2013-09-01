@@ -1,7 +1,7 @@
 from kao_gui.console.console_widget import ConsoleWidget
 
-class WildCardView(ConsoleWidget):
-    """ Represents the view for a Wild Card """
+class StandardCardView(ConsoleWidget):
+    """ Represents the view for a standard card """
     
     def __init__(self, card):
         """ Initialize the view """
@@ -9,4 +9,4 @@ class WildCardView(ConsoleWidget):
         
     def draw(self):
         """ Draw the Widget """
-        return "W"
+        return str(card)
