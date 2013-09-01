@@ -37,4 +37,4 @@ class RoundController(ConsoleController):
         """ Run the Player's Turn """
         if player.canPlay():
             self.runController(DrawController(player, self.round.gameDeck))
-            self.runController(PlayerTurnController(player, self.round.matchPileManager, self.round.gameDeck))
+            self.runController(PlayerTurnController(player, self.round.players, self.round.matchPileManager, self.round.gameDeck))

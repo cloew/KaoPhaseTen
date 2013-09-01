@@ -1,13 +1,16 @@
+from Game.Card.skip_card import SkipCard
 from View.Console.Game.Player.discard_screen import DiscardScreen
+from View.Console.Game.Player.skip_controller import SkipController
 
 from kao_gui.console.console_controller import ConsoleController
 
 class DiscardController(ConsoleController):
     """ Controller for a player discarding a card from their hand """
     
-    def __init__(self, player, deck):
+    def __init__(self, player, players, deck):
         """ Initialize the Discard Controller """
         self.player = player
+        self.players = players
         self.deck = deck
         screen = DiscardScreen(self.player)
         ConsoleController.__init__(self, screen, commands={'1':self.discardACard,
@@ -30,4 +33,6 @@ class DiscardController(ConsoleController):
             if index < len(self.player.hand):
                 card = self.player.hand[index]
                 self.player.discard(card, self.deck)
+                if card.type is SkipCard.type:
+                    self.runController(SkipController(self.player, self.players))
                 self.stopRunning()

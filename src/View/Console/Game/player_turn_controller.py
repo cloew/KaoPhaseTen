@@ -8,9 +8,10 @@ from kao_gui.console.console_controller import ConsoleController
 class PlayerTurnController(ConsoleController):
     """ Controller for a single player's turn """
     
-    def __init__(self, player, matchPileManager, deck):
+    def __init__(self, player, players, matchPileManager, deck):
         """ Initialize the Player Turn Controller """
         self.player = player
+        self.players = players
         self.matchPileManager = matchPileManager
         self.deck = deck
         screen = PlayerTurnScreen(self.player, deck, self.matchPileManager)
@@ -35,5 +36,5 @@ class PlayerTurnController(ConsoleController):
         
     def discardACard(self, event):
         """ Discard a card from the player's hand """
-        self.runController(DiscardController(self.player, self.deck))
+        self.runController(DiscardController(self.player, self.players, self.deck))
         self.stopRunning()
