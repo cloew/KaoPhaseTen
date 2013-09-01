@@ -9,6 +9,7 @@ class PlayerRoundWrapper:
         self.hand = hand
         self.matchPileManager = matchPileManager
         self.phaseCompleted = False
+        self.skipped = False
         self.hand.sort()
     
     @property
@@ -43,6 +44,12 @@ class PlayerRoundWrapper:
                 self.hand.remove(card)
         
         self.player.completePhase()
+        
+    def canPlay(self):
+        """ Return if the player can play their turn """
+        canPlay = not self.skipped
+        self.skipped = False
+        return canPlay
         
     def __repr__(self):
         """ Return the string representation of the Player """

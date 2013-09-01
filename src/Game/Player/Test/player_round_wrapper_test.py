@@ -83,9 +83,43 @@ suiteDiscard = unittest.TestSuite(map(discard, testcasesDiscard))
 
 ##########################################################
 
+class canPlay(unittest.TestCase):
+    """ Test cases of canPlay """
+    
+    def  setUp(self):
+        """ Build the Player Round Wrapper for the test """
+        self.match1 = NumberSet(1)
+        self.match2 = NumberSet(1)
+        self.phase1 = Phase([self.match1, self.match2])
+        self.phase2 = Phase([])
+        self.phaseList = PhaseList([self.phase1, self.phase2])
+        self.player = Player("", self.phaseList)
+        self.matchPileManager = MatchPileManager()
+        self.hand = [NumberCard(1, None), NumberCard(2, None)]
+        self.playerRoundWrapper = PlayerRoundWrapper(self.player, self.hand, self.matchPileManager)
+        
+    def canPlay_NotSkipped(self):
+        """ Test that canPlay works when the Player is not Skipped """
+        assert not self.playerRoundWrapper.skipped, "Player should not be skipped"
+        assert self.playerRoundWrapper.canPlay(), "Player should be able to play when they are not skipped"
+        
+    def canPlay_Skipped(self):
+        """ Test that canPlay works when the Player is Skipped """
+        self.playerRoundWrapper.skipped = True
+        assert self.playerRoundWrapper.skipped, "Player should be skipped"
+        assert not self.playerRoundWrapper.canPlay(), "Player should not be able to play when they are skipped"
+        assert not self.playerRoundWrapper.skipped, "Player should not be skipped anymore"
+
+# Collect all test cases in this class
+testcasesCanPlay = ["canPlay_NotSkipped", "canPlay_Skipped"]
+suiteCanPlay = unittest.TestSuite(map(canPlay, testcasesCanPlay))
+
+##########################################################
+
 # Collect all test cases in this file
 suites = [suiteCompletePhase,
-          suiteDiscard]
+          suiteDiscard,
+          suiteCanPlay]
 suite = unittest.TestSuite(suites)
 
 if __name__ == "__main__":
