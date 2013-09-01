@@ -17,6 +17,9 @@ class Run:
         cardNumbers = [card.number for card in cards if hasattr(card, "number")]
         cardNumbers.sort()
         
+        if len(wildCardIndices) + len(cardNumbers) < len(cards):
+            return False
+        
         for index in wildCardIndices:
             cardNumbers[index:index] = [cardNumbers[index-1]+1]
             if store:
