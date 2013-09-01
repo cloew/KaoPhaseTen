@@ -1,5 +1,6 @@
 from Game.globals import colors
 from Game.Card.number_card import NumberCard
+from Game.Card.skip_card import SkipCard
 from Game.Card.wild_card import WildCard
 
 from kao_deck.deck import Deck
@@ -23,7 +24,7 @@ class GameDeck(Deck):
                 card = NumberCard(i, color)
                 deckInitializer.addSameItem(card, 2)
                 
-        wildCard = WildCard()
-        deckInitializer.addSameItem(wildCard, 8)
+        deckInitializer.addSameItem(WildCard(), 8)
+        deckInitializer.addSameItem(SkipCard(), 4)
                 
         return deckInitializer
