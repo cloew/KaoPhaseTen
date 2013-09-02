@@ -1,6 +1,7 @@
 from View.Console.Game.hand_view import HandView
 from View.Console.Game.match_pile_view import MatchPileView
 from View.Console.Game.Card.card_view_factory import GetCardView
+from View.Console.Game.Phase.phase_view import PhaseView
 
 from kao_gui.console.console_widget import ConsoleWidget
 
@@ -11,12 +12,15 @@ class PlayerHeaderView(ConsoleWidget):
         """ Initialize the view """
         self.player = player
         self.gameDeck = gameDeck
+        self.phaseView = PhaseView(player.phase)
         self.handView = HandView(player)
         self.matchPileView = MatchPileView(matchPileManager)
         
     def draw(self):
         """ Draw the Widget """
         print "{0}'s Turn\r".format(self.player)
+        print "\r"
+        self.phaseView.draw()
         print "\r"
         self.matchPileView.draw()
         print "\r"
