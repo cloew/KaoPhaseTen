@@ -2,6 +2,7 @@
 class NumberCard:
     """ Represents a number card """
     type = "NUMBER"
+    canBeDrawnFromDiscard = False
     
     def __init__(self, number, color):
         """ Initialize the Number Card """

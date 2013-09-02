@@ -2,6 +2,7 @@
 class SkipCard:
     """ Represents the Phase Ten Skip Card """
     type = "SKIP"
+    canBeDrawnFromDiscard = True
     
     def __init__(self):
         """ Initialize the Skip Card """
