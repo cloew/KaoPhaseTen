@@ -14,6 +14,8 @@ class GameDeck(Deck):
         deckInitializer = self.buildDeckInitializer()
         Deck.__init__(self, deck_initializer=deckInitializer)
         self.shuffle()
+        cards = self.draw()
+        self.discard(cards[0])
         
     def buildDeckInitializer(self):
         """ Build the Deck Initializer """
