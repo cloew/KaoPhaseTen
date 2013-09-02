@@ -12,7 +12,7 @@ class GameDeck(Deck):
     def __init__(self):
         """ Initialize the Game Deck """
         deckInitializer = self.buildDeckInitializer()
-        Deck.__init__(self, deck_initializer=deckInitializer)
+        Deck.__init__(self, deck_initializer=deckInitializer, reshuffle=True)
         self.shuffle()
         cards = self.draw()
         self.discard(cards[0])
