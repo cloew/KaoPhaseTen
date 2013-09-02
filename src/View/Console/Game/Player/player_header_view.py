@@ -20,7 +20,7 @@ class PlayerHeaderView(ConsoleWidget):
         print "\r"
         self.matchPileView.draw()
         print "\r"
-        card = self.gameDeck.topOfDiscardPile()
+        card = self.gameDeck.peekAtDiscardPile()
         if card is None:
             discardString = "Empty"
         else:
