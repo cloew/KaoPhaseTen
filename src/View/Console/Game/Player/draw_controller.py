@@ -20,7 +20,7 @@ class DrawController(ConsoleController):
         
     def drawFromDiscard(self, event):
         """ Draw a Card from the deck """
-        if self.gameDeck.topOfDiscardPile() is not None:
+        if self.gameDeck.canDrawFromDiscard():
             cards = self.gameDeck.drawFromDiscardPile()
             self.draw(cards)
         

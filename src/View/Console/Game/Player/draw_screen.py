@@ -14,5 +14,5 @@ class DrawScreen(ConsoleWidget):
         """ Draw the Widget """
         self.headerView.draw()
         print "1. Draw from deck.\r"
-        if self.gameDeck.topOfDiscardPile() is not None:
+        if self.gameDeck.canDrawFromDiscard():
             print "2. Draw from discard pile.\r"

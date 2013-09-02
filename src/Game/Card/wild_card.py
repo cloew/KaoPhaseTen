@@ -3,7 +3,7 @@ from Game.Card.number_card import NumberCard
 class WildCard:
     """ Represents a Wild Card """
     type = "WILD"
-    canBeDrawnFromDiscard = False
+    canBeDrawnFromDiscard = True
         
     def __cmp__(self, other):
         """ Compare a card to another card """

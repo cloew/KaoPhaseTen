@@ -17,6 +17,11 @@ class GameDeck(Deck):
         cards = self.draw()
         self.discard(cards[0])
         
+    def canDrawFromDiscard(self):
+        """ Return if the top card in the discard can be drawn """
+        topCard = self.topOfDiscardPile()
+        return topCard is not None and topCard.canBeDrawnFromDiscard 
+        
     def buildDeckInitializer(self):
         """ Build the Deck Initializer """
         deckInitializer = DeckInitializer()
