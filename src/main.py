@@ -1,12 +1,12 @@
 from View.Console.Game.Setup.game_setup_controller import GameSetupController
 from View.Console.Game.game_controller import GameController
-from kao_gui.console.window import Window
+from kao_gui.console.window import WindowManager
 
 import sys
 
 def main(args):
     """ Run the main file """
-    with Window.window():
+    with WindowManager():
         controller = GameSetupController()
         controller.run()
         
